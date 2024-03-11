@@ -9,9 +9,9 @@ uintptr_t _moneyTicket;
 void new_Update(GameManager *ins) {
     Update(ins);
 
-    SetObscuredFloatValue((uintptr_t) ins + _moneyLp, FLT_MAX);
-    SetObscuredFloatValue((uintptr_t) ins + _moneyCrsytal, FLT_MAX);
-    SetObscuredFloatValue((uintptr_t) ins + _moneyTicket, FLT_MAX);
+    SetObscuredFloatValue((uintptr_t) ins + _moneyLp, 999999990.f);
+    SetObscuredFloatValue((uintptr_t) ins + _moneyCrsytal, 999999990.f);
+    SetObscuredFloatValue((uintptr_t) ins + _moneyTicket, 999999990.f);
 }
 
 void GameManager::Initialize() {

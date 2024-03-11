@@ -9,8 +9,8 @@ void new_Start(CheatDetector *ins) {
     Start(ins);
 
     LOGI("Bypass limit");
-    SetObscuredFloatValue((uintptr_t) ins + mpCheatLimit, -1);
-    SetObscuredFloatValue((uintptr_t) ins + lpCheatLimit, -1);
+    SetObscuredFloatValue((uintptr_t) ins + mpCheatLimit, 999999999.f);
+    SetObscuredFloatValue((uintptr_t) ins + lpCheatLimit, 999999999.f);
 }
 
 void CheatDetector::Initialize() {
