@@ -13,5 +13,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Android Native Mod Template"
+rootProject.name = "Bioskop Simulator Mod"
 include ':app'

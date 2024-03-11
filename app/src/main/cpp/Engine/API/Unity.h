@@ -139,3 +139,44 @@ struct monoDictionary {
         return size;
     }
 };
+
+union intfloat {
+    int i;
+    float f;
+};
+
+/*
+Get the real value of an ObscuredFloat.
+Parameters:
+	- location: the location of the ObscuredFloat
+*/
+static float GetObscuredFloatValue(uint64_t location){
+    int cryptoKey = *(int *)location;
+    int obfuscatedValue = *(int *)(location + 0x4);
+
+    /* use this intfloat to set the integer representation of our parameter value, which will also set the float value */
+    intfloat IF;
+    IF.i = obfuscatedValue ^ cryptoKey;
+
+    return IF.f;
+}
+
+/*
+Set the real value of an ObscuredFloat.
+Parameters:
+	- location: the location of the ObscuredFloat
+	- value: the value we're setting the ObscuredFloat to
+*/
+static void SetObscuredFloatValue(uint64_t location, float value){
+    int cryptoKey = *(int *)location;
+
+    /* use this intfloat to get the integer representation of our parameter value */
+    intfloat IF;
+    IF.f = value;
+
+    /* use this intfloat to generate our hacked ObscuredFloat */
+    intfloat IF2;
+    IF2.i = IF.i ^ cryptoKey;
+
+    *(float *)(location + 0x4) = IF2.f;
+}

@@ -1,9 +1,6 @@
 #include "CBaseEntry.hpp"
 
-/*
- * This file is just sample, you can modify this
- */
-class ExampleEntry : public CBaseEntry {
+class CheatDetector : public CBaseEntry {
 public:
     const char *getAssembly() override;
 
